@@ -27,18 +27,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tagList = new System.Windows.Forms.ListView();
-            this.colType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colSig = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSize = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hexEdit = new Be.Windows.Forms.HexBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.editHeaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,12 +55,13 @@
             this.openDlg = new System.Windows.Forms.OpenFileDialog();
             this.saveDlg = new System.Windows.Forms.SaveFileDialog();
             this.openPDFDlg = new System.Windows.Forms.OpenFileDialog();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.editHeaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.currentlyEditing = new System.Windows.Forms.ToolStripStatusLabel();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.typeIcons = new System.Windows.Forms.ImageList(this.components);
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.resizeTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -80,15 +85,16 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.hexEdit);
             this.splitContainer1.Size = new System.Drawing.Size(732, 392);
-            this.splitContainer1.SplitterDistance = 157;
+            this.splitContainer1.SplitterDistance = 221;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 0;
             // 
             // tagList
             // 
             this.tagList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colType,
+            this.colSig,
             this.colId,
+            this.colType,
             this.colSize});
             this.tagList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tagList.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -96,18 +102,19 @@
             this.tagList.Location = new System.Drawing.Point(0, 0);
             this.tagList.MultiSelect = false;
             this.tagList.Name = "tagList";
-            this.tagList.Size = new System.Drawing.Size(157, 392);
+            this.tagList.Size = new System.Drawing.Size(221, 392);
+            this.tagList.SmallImageList = this.typeIcons;
             this.tagList.TabIndex = 0;
             this.tagList.UseCompatibleStateImageBehavior = false;
             this.tagList.View = System.Windows.Forms.View.Details;
             this.tagList.ItemActivate += new System.EventHandler(this.tagList_ItemActivate);
             this.tagList.SelectedIndexChanged += new System.EventHandler(this.tagList_SelectedIndexChanged);
             // 
-            // colType
+            // colSig
             // 
-            this.colType.DisplayIndex = 1;
-            this.colType.Text = "Type";
-            this.colType.Width = 48;
+            this.colSig.DisplayIndex = 1;
+            this.colSig.Text = "Sig.";
+            this.colSig.Width = 64;
             // 
             // colId
             // 
@@ -133,7 +140,7 @@
             this.hexEdit.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             this.hexEdit.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             this.hexEdit.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.hexEdit.Size = new System.Drawing.Size(573, 392);
+            this.hexEdit.Size = new System.Drawing.Size(509, 392);
             this.hexEdit.StringViewVisible = true;
             this.hexEdit.TabIndex = 0;
             this.hexEdit.VScrollBarVisible = true;
@@ -164,6 +171,14 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
@@ -185,6 +200,19 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(166, 6);
             // 
+            // editHeaderToolStripMenuItem
+            // 
+            this.editHeaderToolStripMenuItem.Name = "editHeaderToolStripMenuItem";
+            this.editHeaderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.editHeaderToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.editHeaderToolStripMenuItem.Text = "Edit &Header";
+            this.editHeaderToolStripMenuItem.Click += new System.EventHandler(this.editHeaderToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(166, 6);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -200,7 +228,9 @@
             this.deleteToolStripMenuItem,
             this.toolStripSeparator2,
             this.moveUpToolStripMenuItem,
-            this.moveDownToolStripMenuItem});
+            this.moveDownToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.resizeTagToolStripMenuItem});
             this.tagsToolStripMenuItem.Name = "tagsToolStripMenuItem";
             this.tagsToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.tagsToolStripMenuItem.Text = "&Tags";
@@ -277,19 +307,6 @@
                 "les (*.*)|*.*";
             this.openPDFDlg.Title = "Locate ICCSpec.pdf";
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(166, 6);
-            // 
-            // editHeaderToolStripMenuItem
-            // 
-            this.editHeaderToolStripMenuItem.Name = "editHeaderToolStripMenuItem";
-            this.editHeaderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.editHeaderToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.editHeaderToolStripMenuItem.Text = "Edit &Header";
-            this.editHeaderToolStripMenuItem.Click += new System.EventHandler(this.editHeaderToolStripMenuItem_Click);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -314,13 +331,35 @@
             this.currentlyEditing.Size = new System.Drawing.Size(37, 13);
             this.currentlyEditing.Text = "(none)";
             // 
-            // newToolStripMenuItem
+            // colType
             // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.newToolStripMenuItem.Text = "&New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.colType.Text = "Type";
+            this.colType.Width = 48;
+            // 
+            // typeIcons
+            // 
+            this.typeIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("typeIcons.ImageStream")));
+            this.typeIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.typeIcons.Images.SetKeyName(0, "unknown");
+            this.typeIcons.Images.SetKeyName(1, "desc");
+            this.typeIcons.Images.SetKeyName(2, "text");
+            this.typeIcons.Images.SetKeyName(3, "XYZ ");
+            this.typeIcons.Images.SetKeyName(4, "mft2");
+            this.typeIcons.Images.SetKeyName(5, "curv");
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(188, 6);
+            // 
+            // resizeTagToolStripMenuItem
+            // 
+            this.resizeTagToolStripMenuItem.Enabled = false;
+            this.resizeTagToolStripMenuItem.Name = "resizeTagToolStripMenuItem";
+            this.resizeTagToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.resizeTagToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.resizeTagToolStripMenuItem.Text = "&Resize Tag...";
+            this.resizeTagToolStripMenuItem.Click += new System.EventHandler(this.resizeTagToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -353,7 +392,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListView tagList;
         private Be.Windows.Forms.HexBox hexEdit;
-        private System.Windows.Forms.ColumnHeader colType;
+        private System.Windows.Forms.ColumnHeader colSig;
         private System.Windows.Forms.ColumnHeader colId;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -379,6 +418,10 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel currentlyEditing;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader colType;
+        private System.Windows.Forms.ImageList typeIcons;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem resizeTagToolStripMenuItem;
     }
 }
 

@@ -9,3 +9,4 @@ c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\GenerateResource.read.1.tlog
 c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\GenerateResource.write.1.tlog
 c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\ICCEdit.exe
 c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\ICCEdit.pdb
+c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\ICCEdit.ResizeTagDlg.resources

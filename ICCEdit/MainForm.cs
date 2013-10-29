@@ -28,14 +28,21 @@ namespace ICCEdit
             private IccTag tag;
             private uint id;
 
-            public IccTagListViewItem(IccTag tag, uint id)
+            public IccTagListViewItem(IccTag tag, uint id, ImageList typeIcons)
                 : base()
             {
                 this.tag = tag;
                 this.id = id;
                 Text = tag.TagSignature;
                 SubItems.Add(id.ToString());
+                SubItems.Add(tag.DataType);
                 SubItems.Add(tag.DataArray.Length.ToString());
+
+                if (typeIcons.Images.ContainsKey(tag.DataType)) {
+                    ImageKey = tag.DataType;
+                } else {
+                    ImageKey = "unknown";
+                }
             }
 
             public IccTag IccTag
@@ -53,7 +60,7 @@ namespace ICCEdit
         {
             tagList.Items.Clear();
             for (int i = 0; i < profile.Tags.Count; i++) {
-                tagList.Items.Add(new IccTagListViewItem(profile.Tags[i], (uint)i));
+                tagList.Items.Add(new IccTagListViewItem(profile.Tags[i], (uint)i, typeIcons));
             }
             deleteToolStripMenuItem.Enabled = (tagList.Items.Count > 0);
         }
@@ -172,6 +179,7 @@ namespace ICCEdit
             deleteToolStripMenuItem.Enabled = enable;
             moveUpToolStripMenuItem.Enabled = enable;
             moveDownToolStripMenuItem.Enabled = enable;
+            resizeTagToolStripMenuItem.Enabled = enable;
         }
 
         private void moveUpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -269,6 +277,15 @@ namespace ICCEdit
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewProfile();
+        }
+
+        private void resizeTagToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SelectedTag != null) {
+                if (new ResizeTagDlg(SelectedTag).ShowDialog() == DialogResult.OK) {
+                    UpdateListView();
+                }
+            }
         }
     }
 }

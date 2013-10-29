@@ -49,8 +49,21 @@ namespace ICCEdit
         public void Resize(int newSize)
         {
             byte[] newArray = new byte[newSize];
-            data.CopyTo(newArray, 0);
+            if (newSize < data.Length) {
+                Array.Copy(data, newArray, newSize);
+            } else {
+                data.CopyTo(newArray, 0);
+            }
             data = newArray;
+        }
+
+        public string DataType
+        {
+            get
+            {
+                if (data.Length < 4) return "";
+                else return Encoding.ASCII.GetString(data, 0, 4);
+            }
         }
     }
 }

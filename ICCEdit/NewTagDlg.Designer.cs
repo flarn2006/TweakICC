@@ -58,6 +58,11 @@
             // dataLength
             // 
             this.dataLength.Location = new System.Drawing.Point(126, 37);
+            this.dataLength.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.dataLength.Minimum = new decimal(new int[] {
             4,
             0,
@@ -119,6 +124,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewTagDlg";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Tag";
             ((System.ComponentModel.ISupportInitialize)(this.dataLength)).EndInit();
