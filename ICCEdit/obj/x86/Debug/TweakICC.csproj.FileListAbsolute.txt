@@ -1,0 +1,11 @@
+c:\src\vs2010\ICCEdit\ICCEdit\bin\Debug\ICCEdit.exe
+c:\src\vs2010\ICCEdit\ICCEdit\bin\Debug\ICCEdit.pdb
+c:\src\vs2010\ICCEdit\ICCEdit\bin\Debug\Be.Windows.Forms.HexBox.dll
+c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\ICCEdit.MainForm.resources
+c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\ICCEdit.NewTagDlg.resources
+c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\ICCEdit.Properties.Resources.resources
+c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\ICCEdit.exe
+c:\src\vs2010\ICCEdit\ICCEdit\obj\x86\Debug\ICCEdit.pdb
