@@ -58,11 +58,13 @@ namespace ICCEdit
 
         private void UpdateListView()
         {
+            int? sel = SelectedIndex;
             tagList.Items.Clear();
             for (int i = 0; i < profile.Tags.Count; i++) {
                 tagList.Items.Add(new IccTagListViewItem(profile.Tags[i], (uint)i, typeIcons));
             }
             deleteToolStripMenuItem.Enabled = (tagList.Items.Count > 0);
+            SelectedIndex = sel;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,6 +97,7 @@ namespace ICCEdit
             currentTag = (tagList.SelectedItems[0] as IccTagListViewItem).IccTag;
             hexEdit.ByteProvider = new ArrayByteProvider(currentTag.DataArray);
             currentlyEditing.Text = String.Format("Tag with signature '{0}'", currentTag.TagSignature);
+            UpdateListView();
         }
 
         private void iCCProfileSpecificationToolStripMenuItem_Click(object sender, EventArgs e)

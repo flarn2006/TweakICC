@@ -64,7 +64,7 @@
             0,
             0});
             this.dataLength.Minimum = new decimal(new int[] {
-            4,
+            8,
             0,
             0,
             0});
@@ -72,7 +72,7 @@
             this.dataLength.Size = new System.Drawing.Size(74, 20);
             this.dataLength.TabIndex = 3;
             this.dataLength.Value = new decimal(new int[] {
-            4,
+            8,
             0,
             0,
             0});
@@ -89,7 +89,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(28, 70);
+            this.btnCancel.Location = new System.Drawing.Point(109, 70);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Enabled = false;
-            this.btnOK.Location = new System.Drawing.Point(109, 70);
+            this.btnOK.Location = new System.Drawing.Point(28, 70);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;

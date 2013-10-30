@@ -21,7 +21,7 @@ namespace ICCEdit
 
         private void ResizeTagDlg_Load(object sender, EventArgs e)
         {
-            selTag.Text = tag.TagSignature;
+            selTag.Text = newSig.Text = tag.TagSignature;
             curSize.Text = tag.DataArray.Length.ToString();
             newSize.Value = tag.DataArray.Length;
         }
@@ -39,8 +39,14 @@ namespace ICCEdit
             }
 
             // If the user answered Yes, or if truncation wasn't an issue in the first place:
+            tag.TagSignature = newSig.Text;
             tag.Resize((int)newSize.Value);
             DialogResult = DialogResult.OK;
+        }
+
+        private void newSig_TextChanged(object sender, EventArgs e)
+        {
+            btnOK.Enabled = (newSig.Text.Length == 4);
         }
     }
 }

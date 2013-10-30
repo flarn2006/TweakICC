@@ -112,12 +112,14 @@
     <None Include="Resources\iccedit.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\mft1.ico" />
     <Content Include="Resources\curv.ico" />
     <Content Include="Resources\mft2.ico" />
-    <Content Include="Resources\desc.ico" />
-    <Content Include="Resources\unknown.ico" />
     <Content Include="Resources\text.ico" />
+    <Content Include="Resources\unknown.ico" />
+    <Content Include="Resources\desc.ico" />
     <Content Include="Resources\xyz.ico" />
+    <Content Include="Resources\view.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

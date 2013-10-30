@@ -36,6 +36,8 @@
             this.newSize = new System.Windows.Forms.NumericUpDown();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.newSig = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.newSize)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +50,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(275, 45);
             this.label1.TabIndex = 8;
-            this.label1.Text = "NOTE:\r\nThis will resize the tag that is currently selected in the list, not neces" +
+            this.label1.Text = "NOTE:\r\nThis will affect the tag that is currently selected in the list, not neces" +
                 "sarily the one that is currently being edited.";
             // 
             // label2
@@ -63,7 +65,7 @@
             // selTag
             // 
             this.selTag.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selTag.Location = new System.Drawing.Point(85, 66);
+            this.selTag.Location = new System.Drawing.Point(93, 65);
             this.selTag.Name = "selTag";
             this.selTag.ReadOnly = true;
             this.selTag.Size = new System.Drawing.Size(45, 22);
@@ -111,7 +113,7 @@
             0,
             0});
             this.newSize.Minimum = new decimal(new int[] {
-            4,
+            8,
             0,
             0,
             0});
@@ -119,7 +121,7 @@
             this.newSize.Size = new System.Drawing.Size(67, 20);
             this.newSize.TabIndex = 1;
             this.newSize.Value = new decimal(new int[] {
-            4,
+            8,
             0,
             0,
             0});
@@ -146,6 +148,27 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 94);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "New signature:";
+            // 
+            // newSig
+            // 
+            this.newSig.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newSig.Location = new System.Drawing.Point(93, 90);
+            this.newSig.MaxLength = 4;
+            this.newSig.Name = "newSig";
+            this.newSig.Size = new System.Drawing.Size(45, 22);
+            this.newSig.TabIndex = 5;
+            this.newSig.Text = "tSig";
+            this.newSig.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.newSig.TextChanged += new System.EventHandler(this.newSig_TextChanged);
+            // 
             // ResizeTagDlg
             // 
             this.AcceptButton = this.btnOK;
@@ -153,12 +176,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(299, 165);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.newSize);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.curSize);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.newSig);
             this.Controls.Add(this.selTag);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -168,7 +193,7 @@
             this.Name = "ResizeTagDlg";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Resize Tag";
+            this.Text = "Rename/Resize Tag";
             this.Load += new System.EventHandler(this.ResizeTagDlg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.newSize)).EndInit();
             this.ResumeLayout(false);
@@ -187,5 +212,7 @@
         private System.Windows.Forms.NumericUpDown newSize;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox newSig;
     }
 }
